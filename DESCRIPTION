@@ -1,0 +1,12 @@
+Package: textir
+Title:  Inverse Regression for Text Analysis
+Version: 2.0
+Date: 
+Author: Matt Taddy <taddy@chicagobooth.edu>
+Depends: R (>= 2.15), distrom 
+Suggests: MASS
+Description:  A suite of tools for text  mining, implementing
+	multinomial inverse regression for text analysis.  Also includes the ability to include latent `topics' in your multinomial linear model, and a minimalist partial least squares algorithm.  
+Maintainer: Matt Taddy <taddy@chicagobooth.edu>
+License: GPL-3
+URL: http://faculty.chicagobooth.edu/matt.taddy/index.html
