@@ -1,0 +1,13 @@
+import(distrom)
+
+export(corr,
+       mnlm,
+       normalize,
+       pls,
+       rdir,
+       sdev,
+       tfidf)
+
+S3method(plot,pls)
+S3method(predict,pls)
+S3method(summary,pls)

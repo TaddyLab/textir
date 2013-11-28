@@ -1,0 +1,22 @@
+citHeader("To cite textir use the appropriate of:")
+
+citEntry(entry = "Article",
+  title        = "Multinomial Inverse Regression for Text Analysis",
+  author       = personList(as.person("Matt Taddy")),
+  year         = "2012",
+  journal       = "Journal of the American Statistical Association"
+  volume          = "108",
+
+  textVersion  =
+  paste("Taddy, M.","(2012)",
+        "Multinomial Inverse Regression for Text Analysis,",
+        "http://arxiv.org/abs/1012.2098")
+)
+
+citEntry(entry="Article",
+         title = "Distributed Multinomial Regression",
+         author = personList(as.person("Matt Taddy")),
+         year = 2013,
+         journal = "arXiv:13",
+
+         textVersion = "Taddy, M. (2013), Distributed Multinomial Regression, arXiv:13")
