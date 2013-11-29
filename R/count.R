@@ -32,7 +32,9 @@ corr <- function(x, y){
   
   r <- tcrossprod(t(x)/sdev(x), v)/(n-1)
   dimnames(r) <- list(dimnames(x)[[2]], dimnames(y)[[2]])
-  return( r ) }
+  return( r ) 
+}
+ 
   
 ## column standard deviation for a simple_triplet_matrix 
 sdev <- function(x){

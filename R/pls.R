@@ -22,11 +22,11 @@ pls <- function(x, y, K=1, scale=TRUE, verb=TRUE){
     if(verb){ cat(paste(k,", ",sep="")) }
 
     ## inverse regression, equiv: t(lm(X~v[,k])$coef)[,2]
-    phi[,k] <- corr(x,v[,k])
+    phi[,k] <- as.matrix(corr(x,v[,k]))
     
     ## project the fitted direction
     if(inherits(x, "dgCMatrix")){
-      z[,k] <- tcrossprod(x, t(phi[,k]))
+      z[,k] <- as.matrix(tcrossprod(x, t(phi[,k])))
     } else { z[,k] <- x%*%phi[,k] }
 
     ## ortho-normalize

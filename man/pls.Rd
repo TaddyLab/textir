@@ -17,15 +17,14 @@
 \method{plot}{pls}(x, K=NULL, xlab="response", ylab=NULL, ...)
 }
 \arguments{
-  \item{x}{ The covariate matrix, in either \code{simple_triplet_matrix} or \code{matrix} format. }
-   \item{y}{ The response vector.  }
-   \item{K}{ The number of desired PLS directions. In plotting, this can be a vector of directions to draw, otherwise directions \code{1:fit$K} are plotted.  }
-   \item{scale}{ An indicator for whether to scale \code{x}; usually a good idea. 
+  \item{x}{ The covariate matrix, in either \code{dgCMatrix} or \code{matrix} format.   For \code{plot} and \code{print}: a \code{pls} output object. }
+  \item{y}{ The response vector.  }
+  \item{K}{ The number of desired PLS directions. In plotting, this can be a vector of directions to draw, otherwise directions \code{1:fit$K} are plotted.  }
+  \item{scale}{ An indicator for whether to scale \code{x}; usually a good idea. 
    		 If \code{scale=TRUE}, model is fit with x scaled to have variance-one columns.   }
-   \item{verb}{ Whether or not to print a small progress script. }
+  \item{verb}{ Whether or not to print a small progress script. }
 
    \item{object}{  For \code{predict} and \code{summary}: a \code{pls} output object.}
-   \item{x}{  For \code{plot} and \code{print}: a \code{pls} output object.}
    \item{newdata}{   For \code{predict}, an \code{ncol(x)}-column matrix of 
   		    new observations. Can be either a simple \code{matrix} or a \code{simple_triplet_matrix}.   }
   \item{type}{  For \code{predict}, a choice between output types: predictions scaled to the original response for \code{"response"}, fitted partial least squares directions for \code{"reduction"}. }

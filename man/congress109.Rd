@@ -72,12 +72,4 @@ plot(Z, pch=21, bg=c(4,3,2)[congress109Ideology$party], main="SR projections")
 ## example usage of the (dmr) predict method
 predict(fitCS, type="reduction", newdata=congress109Counts[c(68,388),])
 predict(fitCS, type="response", newdata=covars[c(68,388),])[,c(995,997)]
-
-## Fit topic model (use lower tol for true convergence)
-par(mfrow=c(1,1))
-tpx <- topics(congress109Counts, K=10, tol=100)
-plot(tpx, group=congress109Ideology$party=="R", 
-	col=c(4,2), labels=c("Dem","GOP"))
-summary(tpx)
-
 }

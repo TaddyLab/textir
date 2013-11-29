@@ -1,4 +1,6 @@
 import(distrom)
+import(gamlr)
+import(Matrix)
 
 export(corr,
        mnlm,

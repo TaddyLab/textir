@@ -48,16 +48,20 @@ Taddy (2013), \emph{Multinomial Inverse Regression for Text Analysis}.
 ### Ripley's Cushing Data; see help(Cushings) ###
 library(MASS)
 data(Cushings)
-train <- log(Cushings[Cushings$Type != "u",])
+Cushings[,1:2] <- log(Cushings[,1:2])
+train <- Cushings[Cushings$Type!="u",]
 newdata <- as.matrix(Cushings[Cushings$Type == "u", 1:2])
 
 ## fit, coefficients, predict, and plot
-fit <- mnlm(covars=train[,1:2], counts=factor(train$Type))
+fit <- mnlm(NULL, 
+  covars=train[,1:2], 
+  counts=factor(train$Type))
+
 ## applies AIC selection by default
 round(coef(fit),1) 
 round(predict(fit, newdata, type="response"),1)
 par(mfrow=c(1,3))
-for(j in c("a","b","c")){
+for(j in c("a","b","c")){ 
   plot(fit[[j]]); mtext(j,line=2) }
  
 }
