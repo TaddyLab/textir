@@ -41,7 +41,7 @@ Taddy (2012), \emph{On Estimation and Selection for Topic Models}.
 Matt Taddy, \email{taddy@chicagobooth.edu}
 }
 
-\seealso{ mnlm, pls, dmr, we8there (similar example from dmr)}
+\seealso{ mnlm, pls, dmr, we8there }
 
 \examples{
 data(congress109)
