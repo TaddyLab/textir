@@ -37,7 +37,8 @@ sort(r[,1])[1:20]
 ## 20 terms for Republicans
 sort(r[,1], decreasing=TRUE)[1:20]
 ## 20 important terms
-sort(sdev(tfidf(congress109Counts)), decreasing=TRUE)[1:20]
+colnames(congress109Counts)[
+	order(-sdev(tfidf(congress109Counts)))[1:20]]
  
  }
 \seealso{ pls, congress109 }

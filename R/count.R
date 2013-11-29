@@ -17,9 +17,13 @@ normalize <- function(x, byrow=TRUE){
 
 ## converting a count matrix to tfidf
 tfidf <- function(x){  
+  stopifnot(!is.null(dim(x)))
   if(inherits(x,"simple_triplet_matrix")) x <- stm2dgC(x)
+  if(is.data.frame(x)) x <- as.matrix(x)
   idf <- log( nrow(x) ) - log(colSums(x>0) + 1)
-  t( t(x) * idf )
+  xf <- t( t(x) * idf )
+  dimnames(xf) <- dimnames(x)
+  xf
 }
 
 ## correlation for slam simple_triplet_matrix and regular matrix
@@ -38,10 +42,12 @@ corr <- function(x, y){
   
 ## column standard deviation for a simple_triplet_matrix 
 sdev <- function(x){
+  if(is.null(dim(x))) return(sd(x))
   if(inherits(x, "simple_triplet_matrix")) x <- stm2dgC(x)
   if(!inherits(x, "dgCMatrix")){ return(apply(as.matrix(x),2,sd)) }
   n <- nrow(x)
   s <- sqrt(colSums(x^2)/(n-1) - colSums(x)^2/(n^2 - n)) 
+  names(s) <- colnames(s)
   return(s)  }
 
 ## Dirichlet RNG
