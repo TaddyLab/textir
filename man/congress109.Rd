@@ -7,7 +7,7 @@
 
 \description{ Phrase counts and ideology scores by speaker for members of the 109th US congress. }
 
-\details{ This data originally appears in Gentzkow and Shapiro
+\details{ This data originally appear in Gentzkow and Shapiro
 (GS; 2010) and considers text of the 2005 Congressional Record,
 containing all speeches in that year for members of the United States
 House and Senate. In particular, GS record the number times each of
