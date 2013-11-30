@@ -37,9 +37,9 @@ These functions provide the first two steps of multinomial inverse regression (s
  parameters under gamma lasso penalization on a factorized Poisson likelihood.  The \code{mnlm} function is just a simple wrapper of the \code{dmr} function of the \code{distrom} library (see DMR paper), which itself relies upon the \code{gamlr} library (see GL paper).  For model selection, coefficients, prediction, and plotting see the relevant functions in \code{help(dmr)}.
 
  \code{srproj} calculates the MNIR  Sufficient Reduction projection from text \code{counts} on to the attribute dimensions of interest (\code{covars} in \code{mnlm}).  In particular, for counts \eqn{C}, with row sums \eqn{m}, and \code{mnlm} coefficients \eqn{\phi_j} corresponding to attribute \eqn{j},
- \eqn{z_j = C'\phi_j/m} is the SR projection in the direction of $j$.  The MNIR paper explains how \eqn{V=[v_1 ... v_K]}, your original attributes, are independent of text counts \eqn{C} given SR projections \eqn{Z=[z_1 ... z_K]}.  
+ \eqn{z_j = C'\phi_j/m} is the SR projection in the direction of \eqn{j}.  The MNIR paper explains how \eqn{V=[v_1 ... v_K]}, your original covariates/attributes, are independent of text counts \eqn{C} given SR projections \eqn{Z=[z_1 ... z_K]}.  
 
-  The third (and final) step of MNIR is `forward regression' of any element of \eqn{V} onto \eqn{Z} and the remaining elements of \eqn{V}.  We do not provide a function for this because you are free to use whatever you want; see the MNIR and DMR papers for linear, logistic, and random forest forward regression examples.
+  The final step of MNIR is `forward regression' for any element of \eqn{V} onto \eqn{Z} and the remaining elements of \eqn{V}.  We do not provide a function for this because you are free to use whatever you want; see the MNIR and DMR papers for linear, logistic, and random forest forward regression examples.
 
   Note that if you were previously using \code{textir} and \code{dmr} not for inverse regression, but rather just as fast code for multinomial logistic regression, you probably want to work directly with the \code{gamlr} (binary response) or \code{dmr} (multinomial response) packages.
  }
@@ -74,11 +74,13 @@ fit <- mnlm(NULL,
   covars=train[,1:2], 
   counts=factor(train$Type))
 
-## applies AIC selection by default
+## dmr applies AIC selection by default
 round(coef(fit),1) 
 round(predict(fit, newdata, type="response"),1)
 par(mfrow=c(1,3))
 for(j in c("a","b","c")){ 
   plot(fit[[j]]); mtext(j,line=2) }
+
+## see we8there and congress109 for MNIR and srproj examples
  
 }
