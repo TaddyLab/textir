@@ -51,7 +51,9 @@ These functions provide the first two steps of multinomial inverse regression (s
 \references{
 Taddy (2013), \emph{Multinomial Inverse Regression for Text Analysis} (MNIR).
 JASA 108.
+
 Taddy (2013), \emph{Distributed Multinomial Regression} (DMR).  arXiv:1311.6139.
+
 Taddy (2013), \emph{The Gamma Lasso} (GL).  arXiv:1308.5623.
 }
 \author{
