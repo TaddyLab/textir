@@ -2,9 +2,10 @@ import(distrom)
 import(gamlr)
 import(Matrix)
 
-export(corr,
-       mnlm,
+export(mnlm,
+       srproj,
        pls,
+       corr,
        sdev)
 
 S3method(plot,pls)

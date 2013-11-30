@@ -31,10 +31,6 @@ Gentzkow, M. and J. Shapiro (2010), \emph{What drives media slant? Evidence from
 
 Taddy (2013), \emph{Multinomial Inverse Regression for Text Analysis}.
 \url{http://arxiv.org/abs/1012.2098}
-
-Taddy (2012), \emph{On Estimation and Selection for Topic Models}.
-\url{http://arxiv.org/abs/1109.4518}
-
 }
 
 \author{ 
@@ -65,11 +61,9 @@ legend("topright",bty="n",fill=c("red","green"),legend=names(covars))
 
 
 ## plot the IR sufficient reduction space
-Z <- predict(fitCS, congress109Counts, type="reduction")
+Z <- srproj(fitCS, congress109Counts)
 par(mfrow=c(1,1))
 plot(Z, pch=21, bg=c(4,3,2)[congress109Ideology$party], main="SR projections")
-
-## example usage of the (dmr) predict method
-predict(fitCS, type="reduction", newdata=congress109Counts[c(68,388),])
-predict(fitCS, type="response", newdata=covars[c(68,388),])[,c(995,997)]
+## two pols
+Z[c(68,388),]
 }

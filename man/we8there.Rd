@@ -57,7 +57,8 @@ B[2,order(B[2,])[1:10]]
 B[2,order(-B[2,])[1:10]]
 
 ## do MNIR projection onto factors
-z <- predict(B,we8thereCounts,type="reduction") 
+z <- srproj(B,we8thereCounts) 
+
 ## fit a fwd model to the factors
 summary(fwd <- lm(we8thereRatings$Overall ~ z)) 
 ## truncate the fwd predictions to our known range

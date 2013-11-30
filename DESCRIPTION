@@ -5,7 +5,7 @@ Date:
 Author: Matt Taddy <taddy@chicagobooth.edu>
 Depends: R (>= 2.15), distrom, gamlr, Matrix 
 Suggests: MASS
-Description:  Inference for text documents and associated attributes. Includes fast sparse multinomial inverse regression for phrase counts, as well as partial least squares and related tools. 
+Description:  Multinomial [inverse] regression inference for text documents and associated attributes. Provides fast sparse multinomial logistic regression for phrase counts.  A minimalist partial least squares routine is also included.  Note that the topic modelling capability of textir is now a separate package, maptpx.
 Maintainer: Matt Taddy <taddy@chicagobooth.edu>
 License: GPL-3
 URL: http://faculty.chicagobooth.edu/matt.taddy/index.html
