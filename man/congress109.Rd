@@ -48,9 +48,14 @@ covars <- data.frame(gop=congress109Ideology$party=="R",
 covars$cscore <- covars$cscore - 
 	tapply(covars$cscore,covars$gop,mean)[covars$gop+1]
 rownames(covars) <- rownames(congress109Ideology)
-cl <- makePSOCKcluster(detectCores())
+
+## cl=NULL implies a serial run. 
+## To use a parallel library socket cluster, 
+## uncomment the relevant lines below.
+cl <- NULL
+# cl <- makePSOCKcluster(detectCores())
 fitCS <- mnlm(cl, covars, congress109Counts, bins=5,gamma=1)
-stopCluster(cl)
+# stopCluster(cl)
 
 ## plot the fit
 par(mfrow=c(1,2))

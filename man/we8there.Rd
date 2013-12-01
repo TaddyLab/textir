@@ -33,13 +33,17 @@ Matt Taddy, \email{taddy@chicagobooth.edu}
 
 \examples{
 ## some multinomial inverse regression
+## we'll regress counts onto 5-star overall rating
 data(we8there)
 
-## regress counts onto 5-star overall rating
-cl <- makePSOCKcluster(detectCores())
+## cl=NULL implies a serial run. 
+## To use a parallel library socket cluster, 
+## uncomment the relevant lines below.
+cl <- NULL
+# cl <- makePSOCKcluster(detectCores())
 fits <- mnlm(cl, we8thereRatings[,'Overall',drop=FALSE], 
 			we8thereCounts, bins=5, gamma=1, verb=TRUE, nlambda=10)
-stopCluster(cl)
+## stopCluster(cl)
 
 ## plot fits for a few individual terms
 terms <- c("first date","chicken wing",
