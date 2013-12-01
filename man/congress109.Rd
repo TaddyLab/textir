@@ -50,10 +50,11 @@ covars$cscore <- covars$cscore -
 rownames(covars) <- rownames(congress109Ideology)
 
 ## cl=NULL implies a serial run. 
-## To use a parallel library socket cluster, 
-## uncomment the relevant lines below.
+## To use a parallel library fork cluster, 
+## uncomment the relevant lines below. 
+## Forking is unix only; use PSOCK for windows
 cl <- NULL
-# cl <- makePSOCKcluster(detectCores())
+# cl <- makeCluster(detectCores(), type="FORK")
 fitCS <- mnlm(cl, covars, congress109Counts, bins=5,gamma=1)
 # stopCluster(cl)
 

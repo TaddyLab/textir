@@ -37,13 +37,14 @@ Matt Taddy, \email{taddy@chicagobooth.edu}
 data(we8there)
 
 ## cl=NULL implies a serial run. 
-## To use a parallel library socket cluster, 
-## uncomment the relevant lines below.
+## To use a parallel library fork cluster, 
+## uncomment the relevant lines below. 
+## Forking is unix only; use PSOCK for windows
 cl <- NULL
-# cl <- makePSOCKcluster(detectCores())
+# cl <- makeCluster(detectCores(), type="FORK")
 fits <- mnlm(cl, we8thereRatings[,'Overall',drop=FALSE], 
 			we8thereCounts, bins=5, gamma=1, verb=TRUE, nlambda=10)
-## stopCluster(cl)
+# stopCluster(cl)
 
 ## plot fits for a few individual terms
 terms <- c("first date","chicken wing",
