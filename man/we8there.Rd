@@ -42,8 +42,9 @@ data(we8there)
 ## Forking is unix only; use PSOCK for windows
 cl <- NULL
 # cl <- makeCluster(detectCores(), type="FORK")
+## small nlambda for a fast example
 fits <- mnlm(cl, we8thereRatings[,'Overall',drop=FALSE], 
-			we8thereCounts, bins=5, gamma=1, verb=TRUE, nlambda=10)
+			we8thereCounts, bins=5, gamma=1, nlambda=10)
 # stopCluster(cl)
 
 ## plot fits for a few individual terms
@@ -66,10 +67,10 @@ z <- srproj(B,we8thereCounts)
 
 ## fit a fwd model to the factors
 summary(fwd <- lm(we8thereRatings$Overall ~ z)) 
+
 ## truncate the fwd predictions to our known range
 fwd$fitted[fwd$fitted<1] <- 1
 fwd$fitted[fwd$fitted>5] <- 5
-
 ## plot the fitted rating by true rating
 par(mfrow=c(1,1))
 plot(fwd$fitted ~ factor(we8thereRatings$Overall), 
