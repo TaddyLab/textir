@@ -1,7 +1,7 @@
 Package: textir
 Title:  Inverse Regression for Text Analysis
-Version: 2.0-1
-Date: 
+Version: 2.0-2
+Date: 2013
 Author: Matt Taddy <taddy@chicagobooth.edu>
 Depends: R (>= 2.15), distrom, gamlr, Matrix 
 Suggests: MASS
