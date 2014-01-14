@@ -76,7 +76,7 @@ fit <- mnlm(NULL,
   covars=train[,1:2], 
   counts=factor(train$Type))
 
-## dmr applies AIC selection by default
+## dmr applies corrected AICc selection by default
 round(coef(fit),1) 
 round(predict(fit, newdata, type="response"),1)
 par(mfrow=c(1,3))
