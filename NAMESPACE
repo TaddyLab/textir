@@ -6,7 +6,8 @@ export(mnlm,
        srproj,
        pls,
        corr,
-       sdev)
+       sdev,
+       tfidf)
 
 S3method(plot,pls)
 S3method(predict,pls)
