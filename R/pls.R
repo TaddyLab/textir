@@ -26,7 +26,7 @@ pls <- function(x, y, K=1, scale=TRUE, verb=TRUE){
     
     ## project the fitted direction
     if(inherits(x, "dgCMatrix")){
-      z[,k] <- as.matrix(tcrossprod(x, t(phi[,k])))
+      z[,k] <- as.matrix(x%*%phi[,k])
     } else { z[,k] <- x%*%phi[,k] }
 
     ## ortho-normalize
@@ -96,7 +96,7 @@ predict.pls <- function(object, newdata, type="response", ...)
   if(inherits(newdata, "simple_triplet_matrix")) 
     newdata <- stm2dg(newdata)
   if(inherits(newdata,"dgCmatrix"))
-    z <- tcrossprod(newdata, t(object$loadings))
+    z <- newdata%*%object$loadings
   else z <- as.matrix(newdata)%*%object$loadings
   
   z <- t(t(z) - object$shift)
