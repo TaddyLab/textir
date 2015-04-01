@@ -3,12 +3,12 @@ citHeader("To cite textir use the appropriate of:")
 citEntry(entry = "Article",
   title        = "Multinomial Inverse Regression for Text Analysis",
   author       = personList(as.person("Matt Taddy")),
-  year         = "2012",
+  year         = "2013",
   journal       = "Journal of the American Statistical Association",
   volume          = "108",
 
   textVersion  =
-  paste("Taddy, M.","(2012)",
+  paste("Taddy, M.","(2013)",
         "Multinomial Inverse Regression for Text Analysis,",
         "http://arxiv.org/abs/1012.2098")
 )
