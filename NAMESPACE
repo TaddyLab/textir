@@ -1,6 +1,8 @@
 import(distrom)
 import(gamlr)
 import(Matrix)
+importFrom("graphics", "legend", "par", "plot")
+importFrom("stats", "coef", "cor", "lm", "resid", "sd")
 
 export(mnlm,
        srproj,
