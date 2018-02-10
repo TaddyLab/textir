@@ -34,10 +34,10 @@ Taddy (2013), \emph{Multinomial Inverse Regression for Text Analysis}.
 }
 
 \author{ 
-Matt Taddy, \email{taddy@chicagobooth.edu}
+Matt Taddy, \email{mataddy@gmail.com}
 }
 
-\seealso{ mnlm, pls, dmr, we8there }
+\seealso{ srproj, pls, dmr, we8there }
 
 \examples{
 data(congress109)
@@ -55,7 +55,7 @@ rownames(covars) <- rownames(congress109Ideology)
 ## Forking is unix only; use PSOCK for windows
 cl <- NULL
 # cl <- makeCluster(detectCores(), type="FORK")
-fitCS <- mnlm(cl, covars, congress109Counts, bins=5,gamma=1)
+fitCS <- dmr(cl, covars, congress109Counts, bins=5,gamma=1)
 # stopCluster(cl)
 
 ## plot the fit

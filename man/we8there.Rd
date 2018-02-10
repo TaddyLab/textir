@@ -18,18 +18,17 @@ Counts for 2804 bigrams in 6175 restaurant reviews from the site www.we8there.co
 \references{ 
 Maua, D.D. and Cozman, F.G. (2009), \emph{Representing and classifying user reviews}. In ENIA '09: VIII Enconro Nacional de Inteligencia Artificial, Brazil.
 
-Taddy (2013), \emph{Multinomial Inverse Regression for Text Analysis}.
-\url{http://arxiv.org/abs/1012.2098}
+Taddy (2013, JASA), \emph{Multinomial Inverse Regression for Text Analysis}.
 
-Taddy (2013), \emph{Distributed Multinomial Regression}.
+Taddy (2013, AoAS), \emph{Distributed Multinomial Regression}.
 
 }
 
 \author{ 
-Matt Taddy, \email{taddy@chicagobooth.edu}
+Matt Taddy, \email{mataddy@gmail.com}
 }
 
-\seealso{ dmr, mnlm }
+\seealso{ dmr, srproj }
 
 \examples{
 ## some multinomial inverse regression
@@ -43,7 +42,7 @@ data(we8there)
 cl <- NULL
 # cl <- makeCluster(detectCores(), type="FORK")
 ## small nlambda for a fast example
-fits <- mnlm(cl, we8thereRatings[,'Overall',drop=FALSE], 
+fits <- dmr(cl, we8thereRatings[,'Overall',drop=FALSE], 
 			we8thereCounts, bins=5, gamma=1, nlambda=10)
 # stopCluster(cl)
 
