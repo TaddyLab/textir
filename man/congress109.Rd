@@ -55,7 +55,8 @@ rownames(covars) <- rownames(congress109Ideology)
 ## Forking is unix only; use PSOCK for windows
 cl <- NULL
 # cl <- makeCluster(detectCores(), type="FORK")
-fitCS <- dmr(cl, covars, congress109Counts, bins=5,gamma=1)
+## small nlambda for a fast example
+fitCS <- dmr(cl, covars, congress109Counts, gamma=1, nlambda=10)
 # stopCluster(cl)
 
 ## plot the fit
@@ -73,3 +74,4 @@ plot(Z, pch=21, bg=c(4,3,2)[congress109Ideology$party], main="SR projections")
 ## two pols
 Z[c(68,388),]
 }
+
